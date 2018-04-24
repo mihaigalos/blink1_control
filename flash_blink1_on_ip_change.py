@@ -2,9 +2,9 @@ import os
 from os.path import expanduser
 from subprocess import Popen, PIPE
 
-
 home = expanduser("~")
 kCurrentIpFile = home+"/git/blink1_control/currentIp.txt"
+kBlinkOneTool = home+"/git/blink1_control/blink1-tool"
 
 def currentIp():
 	get_ip_command = "curl -s icanhazip.com"
@@ -31,6 +31,6 @@ if currentIp == lastKnownIp:
 	pass
 else:
 	writeCurrentIp(currentIp)
-	command = "sudo "+home+"/git/blink1_control/blink1-tool  --magenta --millis=2000 --flash -1 --delay=2000 > /dev/null &"
+	command = "sudo "+kBlinkOneTool+"  --magenta --millis=2000 --flash -1 --delay=2000 > /dev/null &"
 	os.system(command)
 
