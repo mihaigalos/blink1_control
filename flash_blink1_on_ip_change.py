@@ -16,6 +16,7 @@ def currentIp():
 def writeCurrentIp(currentIp, currentIpFile=kCurrentIpFile):
 	file = open(currentIpFile, "w")
 	file.write(currentIp)
+	file.close()
 
 def getLastIp(currentIpFile=kCurrentIpFile):
 	if os.path.isfile(kCurrentIpFile):
